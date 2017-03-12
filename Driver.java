@@ -14,5 +14,7 @@ class Database {
 }
 
 class Element implements Comparable<Element> {
-
+    public int compareTo(Element x) {
+        return 0;
+    }
 }
