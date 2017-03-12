@@ -10,14 +10,17 @@ class Database {
     Database() {
         db = new ArrayList<>();
     }
-
+    public void add(Element elm) {
+        db.add(elm);
+    }
 }
 
 class Element implements Comparable<Element> {
-
+    private String mode;
+    private String mediaType;
     public Element() {
-    	self.mode = "";
-    	self.mediaType = "";
+    	mode = "";
+    	mediaType = "";
     }
     public int compareTo(Element x) {
         return 0;
