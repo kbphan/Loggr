@@ -14,6 +14,11 @@ class Database {
 }
 
 class Element implements Comparable<Element> {
+
+    public Element() {
+    	self.mode = "";
+    	self.mediaType = "";
+    }
     public int compareTo(Element x) {
         return 0;
     }
