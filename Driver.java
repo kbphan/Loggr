@@ -6,9 +6,13 @@ public class Driver {
 }
 
 class Database {
-    private ArrayList<Elements> db;
+    private ArrayList<Element> db;
     Database() {
         db = new ArrayList<>();
     }
+
+}
+
+class Element implements Comparable<Element> {
 
 }
