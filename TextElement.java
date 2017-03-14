@@ -1,4 +1,4 @@
-package loggr;
+//package loggr;
 public class TextElement extends Element {
     TextElement() {
         super();

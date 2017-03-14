@@ -1,10 +1,13 @@
-package loggr;
+//package loggr;
 import java.util.*;
 public class Driver {
     public static void main(String[] args) {
         Database db = new Database();
         TextElement test = new TextElement();
         MediaElement test2 = new MediaElement();
+        db.add(test);
+        db.add(test2);
+        db.printAll();
     }
 }
 
@@ -17,14 +20,25 @@ class Database {
     public void add(Element elm) {
         db.add(elm);
     }
+
+    public void remove(Element elm) {
+        db.remove(elm);
+    }
+
+    public void printAll() {
+        for (Element x : db) {
+            System.out.println(x.getName());
+        }
+    }
 }
 
 class Element implements Comparable<Element> {
-    private String type;
+    private String type, name;
     private int lastViewed, dateStarted, dateAdded;
     private boolean finished, dropped;
 
     public Element() {
+        name = null;
         type = null;
         lastViewed = -1;
         dateStarted = -1;
@@ -33,10 +47,11 @@ class Element implements Comparable<Element> {
         dropped = false;
     }
 
-    public Element(String type, int lastViewed, int dateStarted) {
-        type = type;
-        lastViewed = lastViewed;
-        dateStarted = dateStarted;
+    public Element(String name, String type, int lastViewed, int dateStarted) {
+        this.name = name;
+        this.type = type;
+        this.lastViewed = lastViewed;
+        this.dateStarted = dateStarted;
         finished = false;
         dropped = false;
     }
@@ -44,6 +59,22 @@ class Element implements Comparable<Element> {
     public int compareTo(Element x) {
         return 0;
     }
+
+    /**
+    * Returns value of name
+    * @return
+    */
+    public String getName() {
+        return name;
+    }
+
+    /**
+	* Sets new value of name
+	* @param
+	*/
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
 	* Returns value of type
