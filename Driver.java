@@ -10,6 +10,7 @@ class Database {
     Database() {
         db = new ArrayList<>();
     }
+
     public void add(Element elm) {
         db.add(elm);
     }
@@ -17,14 +18,26 @@ class Database {
 
 class Element implements Comparable<Element> {
     private String type;
-    private int lastViewed;
-    private int dateStarted;
-    private int dateAdded;
-    private boolean finished;
-    private boolean dropped;
-    public Element() {
+    private int lastViewed, dateStarted, dateAdded;
+    private boolean finished, dropped;
 
+    public Element() {
+        type = null;
+        lastViewed = -1;
+        dateStarted = -1;
+        dateAdded = -1;
+        finished = false;
+        dropped = false;
     }
+
+    public Element(String type, int lastViewed, int dateStarted) {
+        type = type;
+        lastViewed = lastViewed;
+        dateStarted = dateStarted;
+        finished = false;
+        dropped = false;
+    }
+
     public int compareTo(Element x) {
         return 0;
     }
