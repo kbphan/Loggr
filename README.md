@@ -1,1 +1,3 @@
 # Loggr
+What is Loggr?
+------
