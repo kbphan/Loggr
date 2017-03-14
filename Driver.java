@@ -2,7 +2,9 @@ package loggr;
 import java.util.*;
 public class Driver {
     public static void main(String[] args) {
-
+        Database db = new Database();
+        TextElement test = new TextElement();
+        MediaElement test2 = new MediaElement();
     }
 }
 
