@@ -1,5 +1,10 @@
 //package loggr;
 import java.util.*;
+// import java.util.ArrayList;
+// import java.util.Comparator;
+// import java.util.List;
+// import java.util.Collections;
+
 public class Driver {
     public static void main(String[] args) {
         Database db = new Database();
@@ -28,61 +33,72 @@ class Database {
     public void sortBy(String comparator) {
 
         if (comparator.equalsIgnoreCase("name")) {
-            sortByName();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getName().compareToIgnoreCase(e2.getName());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("type")) {
-            sortByType();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getName().compareToIgnoreCase(e2.getName());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("lastViewed")) {
-            sortByLastViewed();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getLastViewed().compareTo(e2.getLastViewed());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("dateStarted")) {
-            sortByDateStarted();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getDateStarted().compareTo(e2.getDateStarted());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("dateAdded")) {
-            sortByDateAdded();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getDateAdded().compareTo(e2.getDateAdded());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("finished")) {
-            sortByFinished();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getIsFinished().compareTo(e2.getIsFinished());
+                }
+            });
         }
 
         else if (comparator.equalsIgnoreCase("dropped")) {
-            sortByDropped();
+            Collections.sort(db, new Comparator<Element>() {
+                @Override
+                public int compare(Element e1, Element e2) {
+                    return e1.getIsDropped().compareTo(e2.getIsDropped());
+                }
+            });
         }
 
         else {
             System.out.println("Invalid choice of sorting")
         }
 
-    }
-
-    public void sortByName() {
-        
-    }
-
-    public void sortByType() {
-        
-    }
-
-    public void sortByDateStarted()) {
-        
-    }
-
-    public void sortByDateAdded() {
-        
-    }
-
-    public void sortByFinished() {
-        
-    }
-
-    public void sortByDropped() {
-        
     }
 
     public void printAll() {
