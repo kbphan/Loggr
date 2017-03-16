@@ -64,33 +64,33 @@ class Database {
         }
 
         else {
-            System.out.println("Invalid choice of sorting")
+            System.out.println("Invalid choice of sorting");
         }
 
     }
 
     public void sortByName() {
-        
+
     }
 
     public void sortByType() {
-        
+
     }
 
-    public void sortByDateStarted()) {
-        
+    public void sortByDateStarted() {
+
     }
 
     public void sortByDateAdded() {
-        
+
     }
 
     public void sortByFinished() {
-        
+
     }
 
     public void sortByDropped() {
-        
+
     }
 
     public void printAll() {
