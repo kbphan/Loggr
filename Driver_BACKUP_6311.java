@@ -109,6 +109,33 @@ class Database {
 
     }
 
+<<<<<<< HEAD
+    public void sortByName() {
+
+    }
+
+    public void sortByType() {
+
+    }
+
+    public void sortByDateStarted() {
+
+    }
+
+    public void sortByDateAdded() {
+
+    }
+
+    public void sortByFinished() {
+
+    }
+
+    public void sortByDropped() {
+
+    }
+
+=======
+>>>>>>> b6f0ea30a3bcfd67d0b6430fa76e4446632ee932
     public void printAll() {
         for (Element x : db) {
             System.out.println(x.getName());

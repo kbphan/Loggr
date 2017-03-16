@@ -104,7 +104,7 @@ class Database {
         }
 
         else {
-            System.out.println("Invalid choice of sorting");
+            System.out.println("Invalid choice of sorting")
         }
 
     }
