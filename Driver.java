@@ -8,6 +8,14 @@ public class Driver {
         db.add(test);
         db.add(test2);
         db.printAll();
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = in.nextLine();
+        MediaElement test3 = new MediaElement(name, new Date(), new Date());
+        db.add(test3);
+        //db.printAll();
+        System.out.println(test3.getDateAdded());
+        System.out.println(test3.getLastViewed());
     }
 }
 
@@ -47,7 +55,7 @@ class Element implements Comparable<Element> {
         dropped = false;
     }
 
-    public Element(String name, String type, Date lastViewed, Date dateStarted) {
+    public Element(String name, Date lastViewed, Date dateStarted) {
         this.name = name;
         this.type = type;
         this.lastViewed = lastViewed;
