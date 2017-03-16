@@ -89,7 +89,7 @@ class Database {
             Collections.sort(db, new Comparator<Element>() {
                 @Override
                 public int compare(Element e1, Element e2) {
-                    return e1.getIsFinished().compareTo(e2.getIsFinished());
+                    return e1.isFinished().compareTo(e2.isFinished());
                 }
             });
         }
@@ -98,7 +98,7 @@ class Database {
             Collections.sort(db, new Comparator<Element>() {
                 @Override
                 public int compare(Element e1, Element e2) {
-                    return e1.getIsDropped().compareTo(e2.getIsDropped());
+                    return e1.isDropped().compareTo(e2.isDropped());
                 }
             });
         }
