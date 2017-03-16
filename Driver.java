@@ -33,6 +33,66 @@ class Database {
         db.remove(elm);
     }
 
+    public void sortBy(String comparator) {
+
+        if (comparator.equalsIgnoreCase("name")) {
+            sortByName();
+        }
+
+        else if (comparator.equalsIgnoreCase("type")) {
+            sortByType();
+        }
+
+        else if (comparator.equalsIgnoreCase("lastViewed")) {
+            sortByLastViewed();
+        }
+
+        else if (comparator.equalsIgnoreCase("dateStarted")) {
+            sortByDateStarted();
+        }
+
+        else if (comparator.equalsIgnoreCase("dateAdded")) {
+            sortByDateAdded();
+        }
+
+        else if (comparator.equalsIgnoreCase("finished")) {
+            sortByFinished();
+        }
+
+        else if (comparator.equalsIgnoreCase("dropped")) {
+            sortByDropped();
+        }
+
+        else {
+            System.out.println("Invalid choice of sorting")
+        }
+
+    }
+
+    public void sortByName() {
+        
+    }
+
+    public void sortByType() {
+        
+    }
+
+    public void sortByDateStarted()) {
+        
+    }
+
+    public void sortByDateAdded() {
+        
+    }
+
+    public void sortByFinished() {
+        
+    }
+
+    public void sortByDropped() {
+        
+    }
+
     public void printAll() {
         for (Element x : db) {
             System.out.println(x.getName());
@@ -63,6 +123,8 @@ class Element implements Comparable<Element> {
         finished = false;
         dropped = false;
     }
+
+
 
     public int compareTo(Element x) {
         return 0;
