@@ -1,3 +1,4 @@
+import java.util.*;
 public class CLI {
     CLI() {
 
@@ -14,7 +15,7 @@ public class CLI {
                 db.printAll();
             }
             if (input.equals("show")) {
-
+                db.printAll();
             }
         }
     }
