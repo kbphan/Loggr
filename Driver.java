@@ -34,20 +34,20 @@ class Database {
 
 class Element implements Comparable<Element> {
     private String type, name;
-    private int lastViewed, dateStarted, dateAdded;
+    private Date dateStarted, dateAdded, lastViewed;
     private boolean finished, dropped;
 
     public Element() {
         name = null;
         type = null;
-        lastViewed = -1;
-        dateStarted = -1;
-        dateAdded = -1;
+        lastViewed = null;
+        dateStarted = null;
+        dateAdded = null;
         finished = false;
         dropped = false;
     }
 
-    public Element(String name, String type, int lastViewed, int dateStarted) {
+    public Element(String name, String type, Date lastViewed, Date dateStarted) {
         this.name = name;
         this.type = type;
         this.lastViewed = lastViewed;
@@ -96,7 +96,7 @@ class Element implements Comparable<Element> {
 	* Returns value of lastViewed
 	* @return
 	*/
-	public int getLastViewed() {
+	public Date getLastViewed() {
 		return lastViewed;
 	}
 
@@ -104,7 +104,7 @@ class Element implements Comparable<Element> {
 	* Sets new value of lastViewed
 	* @param
 	*/
-	public void setLastViewed(int lastViewed) {
+	public void setLastViewed(Date lastViewed) {
 		this.lastViewed = lastViewed;
 	}
 
@@ -112,7 +112,7 @@ class Element implements Comparable<Element> {
 	* Returns value of dateStarted
 	* @return
 	*/
-	public int getDateStarted() {
+	public Date getDateStarted() {
 		return dateStarted;
 	}
 
@@ -120,7 +120,7 @@ class Element implements Comparable<Element> {
 	* Sets new value of dateStarted
 	* @param
 	*/
-	public void setDateStarted(int dateStarted) {
+	public void setDateStarted(Date dateStarted) {
 		this.dateStarted = dateStarted;
 	}
 
@@ -128,7 +128,7 @@ class Element implements Comparable<Element> {
 	* Returns value of dateAdded
 	* @return
 	*/
-	public int getDateAdded() {
+	public Date getDateAdded() {
 		return dateAdded;
 	}
 
@@ -136,7 +136,7 @@ class Element implements Comparable<Element> {
 	* Sets new value of dateAdded
 	* @param
 	*/
-	public void setDateAdded(int dateAdded) {
+	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
 
