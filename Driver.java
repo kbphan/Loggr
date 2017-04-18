@@ -28,21 +28,15 @@ class Database {
 
     public Element remove(String elm) {
         int counter = 0;
-        int index = -1;
         for (Element x : db) {
             if (x.getName().equals(elm)) {
-                index = counter;
+                return db.remove(counter);
             }
             counter++;
         }
-        if (index > -1) {
-            return db.remove(index);
-        }
-        else {
-            return null;
-        }
+        return null;
     }
-    
+
     public Element get(String elm)
     {
         for(Element e : db)
@@ -156,7 +150,7 @@ class Element implements Comparable<Element> {
         finished = false;
         dropped = false;
     }
-    
+
     @Override
     public String toString()
     {
