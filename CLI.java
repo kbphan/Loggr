@@ -34,7 +34,7 @@ public class CLI {
                     System.out.println(db.get(in.nextLine()).toString());
                 }
                 else {
-                    System.out.println("Invalid command please try again");
+                    System.out.println("Invalid command, please try again");
                 }
             }
         }
