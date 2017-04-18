@@ -7,8 +7,7 @@ public class CLI {
     public void run() {
         Database db = new Database();
         boolean running = true;
-        try(Scanner in = new Scanner(System.in))
-        {
+        try(Scanner in = new Scanner(System.in)) {
             while (running) {
                 System.out.print("Enter a command: ");
                 String input = in.next();
@@ -26,14 +25,13 @@ public class CLI {
                     }
                 }
                 else if (input.equals("remove")) {
-                    db.remove(in.next());
-                }
-                else if (input.equals("details")) {
-                    String info = db.get(in.next()).toString();
-                    System.out.println(info);
+                    db.remove(in.nextLine());
                 }
                 else if (input.equals("show")) {
                     db.printAll();
+                }
+                else if (input.equals("get")) {
+                    System.out.println(db.get(in.nextLine()).toString());
                 }
                 else {
                     System.out.println("Invalid command please try again");
