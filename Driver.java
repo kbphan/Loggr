@@ -139,6 +139,23 @@ class Element implements Comparable<Element> {
         finished = false;
         dropped = false;
     }
+    
+    @Override
+    public String toString()
+    {
+        String droppedStr = "no";
+        if(dropped)
+        {
+            droppedStr = "yes";
+        }
+        String finishedStr = "no";
+        if(finished)
+        {
+            finishedStr = "yes";
+        }
+        return "Name: \"" + this.name + "\", Type: " + this.type + ", Date started: " + this.dateStarted + ", Date last viewed: "
+                + this.lastViewed + ", Dropped: " + droppedStr + ", Finished: " + finishedStr;
+    }
 
 
 
@@ -148,7 +165,7 @@ class Element implements Comparable<Element> {
 
     /**
     * Returns value of name
-    * @return
+    * @return the object's name
     */
     public String getName() {
         return name;
@@ -156,7 +173,7 @@ class Element implements Comparable<Element> {
 
     /**
 	* Sets new value of name
-	* @param
+	* @param new name
 	*/
 	public void setName(String name) {
 		this.name = name;
@@ -172,10 +189,13 @@ class Element implements Comparable<Element> {
 
 	/**
 	* Sets new value of type
-	* @param
+	* @param new type
 	*/
 	public void setType(String type) {
-		this.type = type;
+                if(type.equals("media") || type.equals("text"))
+                {
+                    this.type = type;
+                }
 	}
 
 	/**
