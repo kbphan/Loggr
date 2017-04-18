@@ -20,7 +20,7 @@ public class CLI {
                     db.add(new MediaElement(in.nextLine(), new Date(), new Date()));
                 }
                 else if (input.equals("remove")) {
-                    db.remove(in.next());
+                    db.remove(in.nextLine());
                 }
                 else if (input.equals("show")) {
                     db.printAll();
