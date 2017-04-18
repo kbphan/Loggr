@@ -29,8 +29,6 @@ public class CLI {
                 else if (input.equals("show")) {
                     db.printAll();
                 }
-
->>>>>>> bc4e952a8c3b23a972a66ae731e20b334fdb6c11
             }
         }
     }
