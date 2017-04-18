@@ -18,10 +18,10 @@ public class CLI {
                 else if (input.equals("add")) {
                     input = in.next();
                     if (input.equals("media")) {
-                        db.add(new MediaElement(in.nextLine(), new Date(), new Date()));
+                        db.add(new MediaElement(in.nextLine().trim(), new Date(), new Date()));
                     }
                     else if (input.equals("text")) {
-                        db.add(new TextElement(in.nextLine(), new Date(), new Date()));
+                        db.add(new TextElement(in.nextLine().trim(), new Date(), new Date()));
                     }
                 }
                 else if (input.equals("remove")) {
