@@ -7,20 +7,8 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-        Database db = new Database();
-        TextElement test = new TextElement();
-        MediaElement test2 = new MediaElement();
-        db.add(test);
-        db.add(test2);
-        db.printAll();
-        Scanner in = new Scanner(System.in);
-        System.out.print("Name: ");
-        String name = in.nextLine();
-        MediaElement test3 = new MediaElement(name, new Date(), new Date());
-        db.add(test3);
-        //db.printAll();
-        System.out.println(test3.getDateAdded());
-        System.out.println(test3.getLastViewed());
+        CLI ui = new CLI();
+        ui.run();
     }
 }
 
@@ -34,8 +22,25 @@ class Database {
         db.add(elm);
     }
 
-    public void remove(Element elm) {
-        db.remove(elm);
+    public boolean remove(Element elm) {
+        return db.remove(elm);
+    }
+
+    public Element remove(String elm) {
+        int counter = 0;
+        int index = -1;
+        for (Element x : db) {
+            if (x.getName().equals(elm)) {
+                index = counter;
+            }
+            counter++;
+        }
+        if (index > -1) {
+            return db.remove(index);
+        }
+        else {
+            return null;
+        }
     }
 
     public void sortBy(String comparator) {
