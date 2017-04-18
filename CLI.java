@@ -17,7 +17,13 @@ public class CLI {
                     running = false;
                 }
                 else if (input.equals("add")) {
-                    db.add(new MediaElement(in.next(), new Date(), new Date()));
+                    input = in.next();
+                    if (input.equals("media")) {
+                        db.add(new MediaElement(in.nextLine(), new Date(), new Date()));
+                    }
+                    else if (input.equals("text")) {
+                        db.add(new TextElement(in.nextLine(), new Date(), new Date()));
+                    }
                 }
                 else if (input.equals("remove")) {
                     db.remove(in.next());
@@ -29,8 +35,9 @@ public class CLI {
                 else if (input.equals("show")) {
                     db.printAll();
                 }
-
->>>>>>> bc4e952a8c3b23a972a66ae731e20b334fdb6c11
+                else {
+                    System.out.println("Invalid command please try again");
+                }
             }
         }
     }
