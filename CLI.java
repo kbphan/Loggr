@@ -17,17 +17,17 @@ public class CLI {
                     running = false;
                 }
                 else if (input.equals("add")) {
-                    db.add(new MediaElement(in.next(), new Date(), new Date()));
+                    db.add(new MediaElement(in.nextLine(), new Date(), new Date()));
                 }
                 else if (input.equals("remove")) {
                     db.remove(in.next());
                 }
-                else if (input.equals("details")) {
-                    String info = db.get(in.next()).toString();
-                    System.out.println(info);
-                }
                 else if (input.equals("show")) {
                     db.printAll();
+                }
+                else if(input.equals("get"))
+                {
+                    System.out.println(db.get(in.nextLine()).toString());
                 }
             }
         }
