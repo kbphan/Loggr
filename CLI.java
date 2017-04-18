@@ -9,17 +9,22 @@ public class CLI {
         boolean running = true;
         Scanner in = new Scanner(System.in);
         while (running) {
-            System.out.println("Enter a command");
+            System.out.print("Enter a command: ");
             String input = in.next();
-            if (input.equals("add")) {
+            if(input.equals("exit") || input.equals("quit"))
+            {
+                running = false;
+            }
+            else if (input.equals("add")) {
                 db.add(new MediaElement(in.next(), new Date(), new Date()));
             }
             else if (input.equals("remove")) {
                 db.remove(in.next());
             }
-            if (input.equals("show")) {
+            else if (input.equals("show")) {
                 db.printAll();
             }
+            
         }
     }
 }
