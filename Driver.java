@@ -42,6 +42,18 @@ class Database {
             return null;
         }
     }
+    
+    public Element get(String elm)
+    {
+        for(Element e : db)
+        {
+            if(e.getName().equals(elm))
+            {
+                return e;
+            }
+        }
+        return null;
+    }
 
     public void sortBy(String comparator) {
 
