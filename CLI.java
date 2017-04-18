@@ -17,7 +17,11 @@ public class CLI {
             else if (input.equals("remove")) {
                 db.remove(in.next());
             }
-            if (input.equals("show")) {
+            else if (input.equals("details")) {
+                String info = db.get(in.next()).toString();
+                System.out.println(info);
+            }
+            else if (input.equals("show")) {
                 db.printAll();
             }
         }

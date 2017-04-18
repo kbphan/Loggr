@@ -192,7 +192,7 @@ class Element implements Comparable<Element> {
 
 	/**
 	* Returns value of type
-	* @return
+	* @return the object's type
 	*/
 	public String getType() {
 		return type;
@@ -211,7 +211,7 @@ class Element implements Comparable<Element> {
 
 	/**
 	* Returns value of lastViewed
-	* @return
+	* @return the Date last viewed
 	*/
 	public Date getLastViewed() {
 		return lastViewed;
