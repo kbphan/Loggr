@@ -4,7 +4,7 @@ import java.io.*;
 
 
 public class Driver {
-    public static void main(String[] args) throws MalformedURLException, IOException {
+    public static void main(String[] args) {
         LoggrGUI gui = new LoggrGUI();
         gui.launch();
         CLI ui = new CLI();
