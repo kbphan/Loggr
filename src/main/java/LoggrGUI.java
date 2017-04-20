@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 
 public class LoggrGUI extends Application {
-    private static final int APPWIDTH = 1000; 
+    private static final int APPWIDTH = 1000;
     private static final int APPHEIGHT = 600;
     private static final int BUTTONWIDTH = 80;
     private static final int BUTTONHEIGHT = 15;
@@ -20,7 +20,7 @@ public class LoggrGUI extends Application {
     GridPane mainPane;
     Scene mainScene;
     Stage primaryStage;
-    TableView movieList; 
+    TableView movieList;
 
     @Override
     public void start(Stage stage) {
@@ -81,7 +81,7 @@ public class LoggrGUI extends Application {
     }
 
     // private void setupMainButtonSizes(int width, int height) {
-        
+
     // }
 
     private void setupButtonBox() {
@@ -109,13 +109,13 @@ public class LoggrGUI extends Application {
     private void setupMovieList() {
         setupMovieListColumns();
         movieList = new TableView();
-        movieList.getColumns().addAll(nameCol, 
-                                      genreCol, 
-                                      ratingCol, 
-                                      typeCol, 
-                                      progressCol); 
+        movieList.getColumns().addAll(nameCol,
+                                      genreCol,
+                                      ratingCol,
+                                      typeCol,
+                                      progressCol);
         setupMovieListColumnWidth();
-        
+
     }
 
     private void setupMovieListColumns() {
