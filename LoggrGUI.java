@@ -1,20 +1,10 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-
-import javafx.geometry.Insets;
+import javafx.geometry.*;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.Priority;
 
 
 public class LoggrGUI extends Application {
@@ -34,13 +24,8 @@ public class LoggrGUI extends Application {
 
     @Override
     public void start(Stage stage) {
-        initUI(stage);
-    }
-
-    private void initUI(Stage stage) {
         primaryStage = stage;
         setupScenes();
-
         stage.setTitle("Loggr"); //Title in the titlebar
         stage.setScene(mainScene);
         stage.show();
