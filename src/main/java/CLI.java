@@ -31,7 +31,7 @@ public class CLI {
                     db.printAll();
                 }
                 else if (input.equals("get")) {
-                    System.out.println(db.get(in.nextLine()).toString());
+                    System.out.println(db.get(in.nextLine().trim()).toString());
                 }
                 else {
                     System.out.println("Invalid command please try again");
