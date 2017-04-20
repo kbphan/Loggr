@@ -1,8 +1,5 @@
 import java.util.*;
 public class CLI {
-    CLI() {
-
-    }
 
     public void run() {
         Database db = new Database();
@@ -34,7 +31,7 @@ public class CLI {
                     System.out.println(db.get(in.nextLine().trim()).toString());
                 }
                 else {
-                    System.out.println("Invalid command please try again");
+                    System.out.println("Invalid command, please try again");
                 }
             }
         }
