@@ -1,5 +1,9 @@
 import java.util.*;
 public class CLI {
+    public static void main(String[] args) {
+        CLI cli = new CLI();
+        cli.run();
+    }
 
     public void run() {
         Database db = new Database();

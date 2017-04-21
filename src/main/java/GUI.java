@@ -7,7 +7,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
-public class LoggrGUI extends Application {
+public class GUI extends Application {
     private static final int APPWIDTH = 1000;
     private static final int APPHEIGHT = 600;
     private static final int BUTTONWIDTH = 80;
