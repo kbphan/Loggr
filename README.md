@@ -11,6 +11,8 @@ How to launch
 ------
 to launch it from the commandline type
 
-`java -cp target/Loggr-1.0.jar GUI`
+```bash
+java -cp target/Loggr-1.0.jar GUI
+```
 
 alternatively, this program can be compiled and launched through netbeans by cloning the repository
