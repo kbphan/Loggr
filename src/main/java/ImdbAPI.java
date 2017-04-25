@@ -65,7 +65,7 @@ public class ImdbAPI {
         return this.rawText.substring(a,b);
     }
     
-    private static String omdbGet(String title)
+    private String omdbGet(String title)
     {
         StringBuilder result = new StringBuilder();
         title = title.replaceAll(" ", "_");
