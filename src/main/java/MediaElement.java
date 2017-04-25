@@ -17,4 +17,18 @@ public class MediaElement extends Element {
             return this.omdbData;
     }
     
+    public String getRawOmdbData()
+    {
+        return this.omdbData.getRawText();
+    }
+    
+    public String getFilmRating()
+    {
+        return this.omdbData.getFilmRating();
+    }
+    
+    public String getReleaseYear()
+    {
+        return this.omdbData.getReleaseYear();
+    }
 }

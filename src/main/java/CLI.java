@@ -7,6 +7,8 @@ public class CLI {
 
     public void run() {
         Database db = new Database();
+        MediaElement test1 = new MediaElement("Harry Potter and the Sorcerer's Stone", new Date(), new Date());
+        System.out.println(test1.getRawOmdbData());
         boolean running = true;
         try(Scanner in = new Scanner(System.in)) {
             while (running) {
