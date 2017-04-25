@@ -16,7 +16,7 @@ public class GUI extends Application {
     private static final int BUTTONHEIGHT = 15;
 
     Button addButton, removeButton, editButton, exportButton, importButton, helpButton;
-    TableColumn nameCol, genreCol, ratingCol, typeCol, progressCol;
+    TableColumn nameCol, releaseCol, ratingCol, typeCol, progressCol;
     ColumnConstraints col1, col2;
     HBox buttonBox;
     GridPane mainPane;
@@ -112,10 +112,13 @@ public class GUI extends Application {
         setupMovieListColumns();
         movieList = new TableView<Element>();
         movieList.getColumns().addAll(nameCol,
-                                      genreCol,
+                                      releaseCol,
                                       ratingCol,
                                       typeCol,
                                       progressCol);
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         setupMovieListColumnWidth();
         movieList.setItems(getElements());
@@ -124,7 +127,7 @@ public class GUI extends Application {
 
     private void setupMovieListColumns() {
         nameCol = new TableColumn("Name");
-        genreCol = new TableColumn("Genre");
+        releaseCol = new TableColumn("Released");
         ratingCol = new TableColumn("Rating");
         typeCol = new TableColumn("Type");
         progressCol = new TableColumn("Progress");
@@ -132,7 +135,7 @@ public class GUI extends Application {
 
     private void setupMovieListColumnWidth() {
         nameCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
-        genreCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
+        releaseCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         ratingCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         typeCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         progressCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
