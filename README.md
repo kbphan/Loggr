@@ -6,3 +6,13 @@ Loggr is a program that keeps track of media consumed by automatically or manual
 UI Options
 ------
 Loggr features the option of using a command line based interface or a graphic interface
+
+How to launch
+------
+to launch it from the commandline type
+
+```bash
+java -cp target/Loggr-1.0.jar GUI
+```
+
+alternatively, this program can be compiled and launched through netbeans by cloning the repository

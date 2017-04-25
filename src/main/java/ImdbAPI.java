@@ -2,7 +2,19 @@ import java.io.*;
 import java.net.*;
 
 public class ImdbAPI {
-    public static String omdbGet(String title)
+    
+    private String rawText;
+    public ImdbAPI(String title)
+    {
+        this.rawText = omdbGet(title);
+    }
+    
+    public String getRawText()
+    {
+        return this.rawText;
+    }
+    
+    private static String omdbGet(String title)
     {
         StringBuilder result = new StringBuilder();
         title = title.replaceAll(" ", "_");
