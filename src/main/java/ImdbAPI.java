@@ -3,12 +3,13 @@ import java.net.*;
 
 public class ImdbAPI {
     
-    private String rawText, filmRating, releaseYear;
+    private String rawText, filmRating, releaseYear, genres;
     public ImdbAPI(String title)
     {
         this.rawText = omdbGet(title);
         this.filmRating = this.parseFilmRating();
         this.releaseYear = this.parseReleaseYear();
+        this.genres = this.parseGenres();
     }
     
     public String getRawText()
@@ -24,6 +25,22 @@ public class ImdbAPI {
     public String getReleaseYear()
     {
         return this.releaseYear;
+    }
+    
+    public String getGenres()
+    {
+        return this.genres;
+    }
+    
+    private String parseGenres()
+    {
+        if(this.rawText.contains("\"Response\":\"False\""))
+        {
+            return null;
+        }
+        int a = this.rawText.indexOf("\"Genre\":\"") + 9;
+        int b = this.rawText.indexOf("\",\"Director\":\"");
+        return this.rawText.substring(a,b);
     }
     
     private String parseFilmRating()

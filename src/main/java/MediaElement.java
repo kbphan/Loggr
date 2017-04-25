@@ -31,4 +31,9 @@ public class MediaElement extends Element {
     {
         return this.omdbData.getReleaseYear();
     }
+    
+    public String getGenres()
+    {
+        return this.omdbData.getGenres();
+    }
 }
