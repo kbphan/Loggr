@@ -7,6 +7,12 @@ public class CLI {
 
     public void run() {
         Database db = new Database();
+        MediaElement test1 = new MediaElement("Salt", new Date(), new Date());
+        System.out.println(test1.getOmdbData().getRawText());
+        System.out.println(test1.getOmdbData().getFilmRating());
+        System.out.println(test1.getOmdbData().getReleaseYear());
+        
+        
         boolean running = true;
         try(Scanner in = new Scanner(System.in)) {
             while (running) {
