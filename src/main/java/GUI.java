@@ -6,7 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.collections.*;
-
+import javafx.scene.control.cell.*;
+import java.util.*;
 
 public class GUI extends Application {
     private static final int APPWIDTH = 1000;
@@ -109,13 +110,15 @@ public class GUI extends Application {
 
     private void setupMovieList() {
         setupMovieListColumns();
-        movieList = new TableView();
+        movieList = new TableView<Element>();
         movieList.getColumns().addAll(nameCol,
                                       genreCol,
                                       ratingCol,
                                       typeCol,
                                       progressCol);
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         setupMovieListColumnWidth();
+        movieList.setItems(getElements());
 
     }
 
@@ -137,7 +140,8 @@ public class GUI extends Application {
 
     public ObservableList<Element> getElements() {
         ObservableList<Element> listOfElements = FXCollections.observableArrayList();
-
+        listOfElements.add(new MediaElement("Harry Potter", new Date(), new Date()));
+        return listOfElements;
     }
 
     public static void main(String[] args) {
