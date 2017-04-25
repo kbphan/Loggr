@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.collections.*;
 
 
 public class GUI extends Application {
@@ -132,6 +133,11 @@ public class GUI extends Application {
         ratingCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         typeCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         progressCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
+    }
+
+    public ObservableList<Element> getElements() {
+        ObservableList<Element> listOfElements = FXCollections.observableArrayList();
+
     }
 
     public static void main(String[] args) {
