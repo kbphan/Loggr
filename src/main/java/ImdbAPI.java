@@ -33,9 +33,7 @@ public class ImdbAPI {
             return null;
         }
         int a = this.rawText.indexOf("\"Rated\":\"") + 9;
-        System.out.println(a);
         int b = this.rawText.indexOf("\",\"Released\":\"");
-        System.out.println(b);
         return this.rawText.substring(a,b);
     }
     
