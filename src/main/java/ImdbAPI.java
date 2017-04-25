@@ -40,6 +40,10 @@ public class ImdbAPI {
         }
         int a = this.rawText.indexOf("\"Genre\":\"") + 9;
         int b = this.rawText.indexOf("\",\"Director\":\"");
+        if(a == -1 || b == -1)
+        {
+            return null;
+        }
         return this.rawText.substring(a,b);
     }
     
@@ -51,6 +55,10 @@ public class ImdbAPI {
         }
         int a = this.rawText.indexOf("\"Rated\":\"") + 9;
         int b = this.rawText.indexOf("\",\"Released\":\"");
+        if(a == -1 || b == -1)
+        {
+            return null;
+        }
         return this.rawText.substring(a,b);
     }
     
@@ -62,6 +70,10 @@ public class ImdbAPI {
         }
         int a = this.rawText.indexOf("\"Year\":\"") + 8;
         int b = this.rawText.indexOf("\",\"Rated\":\"");
+        if(a == -1 || b == -1)
+        {
+            return null;
+        }
         return this.rawText.substring(a,b);
     }
     
