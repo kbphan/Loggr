@@ -12,7 +12,7 @@ public class ImdbAPI_old {
         this.filmRating = this.parseFilmRating();
         this.releaseYear = this.parseReleaseYear();
         this.genres = this.parseGenres();
-        //this.posterFilePath = this.fetchPosterImage();
+        this.posterFilePath = this.fetchPosterImage();
     }
     
     public String getRawText()
@@ -53,7 +53,6 @@ public class ImdbAPI_old {
         }
     }
 
-    /*
     private String fetchPosterImage()
     {
         if(!this.rawText.contains("\"Poster\":\""))
@@ -88,7 +87,7 @@ public class ImdbAPI_old {
         
         return "poster/" + url;
     }
-    */
+
     
     private String parseGenres()
     {
