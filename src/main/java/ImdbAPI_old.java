@@ -3,16 +3,16 @@ import java.net.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
-public class ImdbAPI {
+public class ImdbAPI_old {
     
     private String rawText, filmRating, releaseYear, genres, posterFilePath;
-    public ImdbAPI(String title)
+    public ImdbAPI_old(String title)
     {
         this.rawText = omdbGet(title);
         this.filmRating = this.parseFilmRating();
         this.releaseYear = this.parseReleaseYear();
         this.genres = this.parseGenres();
-        this.posterFilePath = this.fetchPosterImage();
+        //this.posterFilePath = this.fetchPosterImage();
     }
     
     public String getRawText()
@@ -52,7 +52,8 @@ public class ImdbAPI {
             return null;
         }
     }
-    
+
+    /*
     private String fetchPosterImage()
     {
         if(!this.rawText.contains("\"Poster\":\""))
@@ -87,6 +88,7 @@ public class ImdbAPI {
         
         return "poster/" + url;
     }
+    */
     
     private String parseGenres()
     {

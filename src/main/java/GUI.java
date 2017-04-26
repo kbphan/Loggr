@@ -1,9 +1,9 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.collections.*;
 import javafx.scene.control.cell.*;
@@ -16,19 +16,23 @@ public class GUI extends Application {
     private static final int BUTTONHEIGHT = 15;
 
     Button addButton, removeButton, editButton, exportButton, importButton, helpButton;
-    TableColumn nameCol, releaseCol, ratingCol, typeCol, progressCol;
+    TableColumn nameCol, lastvCol, ratingCol, typeCol, progressCol;
     ColumnConstraints col1, col2;
     HBox buttonBox;
+    HBox sideBox;
     GridPane mainPane;
     Scene mainScene;
     Stage primaryStage;
     TableView movieList;
+    TextField nameInput;
+    ChoiceBox typeInput;
+    Text description;
 
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
         setupScenes();
-        stage.setTitle("Loggr"); //Title in the titlebar
+        stage.setTitle("Loggr"); //Title in the title bar
         stage.setScene(mainScene);
         stage.show();
     }
@@ -48,9 +52,11 @@ public class GUI extends Application {
         setupMainButtons();
         // setupMainButtonSizes(BUTTONWIDTH, BUTTONHEIGHT);
         setupButtonBox();
+        setupSideBox();
         setupMovieList();
         mainPane.add(buttonBox, 0, 1);
         mainPane.add(movieList, 0, 0);
+        mainPane.add(sideBox, 1, 0);
         mainPane.setVgrow(movieList, Priority.ALWAYS);
         mainPane.setHgrow(buttonBox, Priority.ALWAYS);
     }
@@ -64,13 +70,38 @@ public class GUI extends Application {
     }
 
     private void setupMainButtons() {
+        nameInput = new TextField();
+        nameInput.setPromptText("name");
+        nameInput.setMinWidth(100);
+        typeInput = new ChoiceBox<String>();
+        typeInput.getItems().addAll("media",
+                                    "text");
+        typeInput.setValue("media");
         addButton = new Button("Add");
+        addButton.setOnAction(e -> addButtonClicked());
         removeButton = new Button("Remove");
+        removeButton.setOnAction(e -> removeButtonClicked());
         editButton = new Button("Edit");
         exportButton = new Button("Export");
         importButton = new Button("Import");
         helpButton = new Button("?");
         setupButtonSizes();
+    }
+
+    public void addButtonClicked() {
+        if (typeInput.getValue().equals("media")) {
+            MediaElement media = new MediaElement();
+            media.setName(nameInput.getText());
+            movieList.getItems().add(media);
+            nameInput.clear();
+        }
+    }
+
+    public void removeButtonClicked() {
+        ObservableList<Element> selectedElements, allElements;
+        allElements = movieList.getItems();
+        selectedElements = movieList.getSelectionModel().getSelectedItems();
+        selectedElements.forEach(allElements::remove);
     }
 
     private void setupButtonSizes() {
@@ -88,7 +119,9 @@ public class GUI extends Application {
 
     private void setupButtonBox() {
         buttonBox = new HBox();
-        buttonBox.getChildren().addAll(addButton,
+        buttonBox.getChildren().addAll(nameInput,
+                                       typeInput,
+                                       addButton,
                                        removeButton,
                                        editButton,
                                        exportButton,
@@ -97,6 +130,16 @@ public class GUI extends Application {
         buttonBox.setSpacing(0);
         setupButtonGrow();
         //buttonBox.setPadding(new Insets(0, 12, 15, 12));
+    }
+
+    private void setupSideBox() {
+        sideBox = new HBox();
+        for (String str : JSON.getData("Harry Potter")) {
+            System.out.println(str);
+        }
+        description = new Text();
+        description.setFont(new Font(16));
+        sideBox.getChildren().add(description);
     }
 
     private void setupButtonGrow() {
@@ -111,15 +154,25 @@ public class GUI extends Application {
     private void setupMovieList() {
         setupMovieListColumns();
         movieList = new TableView<Element>();
+        movieList.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>()
+        {
+            @Override
+            public void onChanged(Change<? extends Integer> change)
+            {
+
+            }
+
+        });
         movieList.getColumns().addAll(nameCol,
-                                      releaseCol,
+                                      lastvCol,
                                       ratingCol,
                                       typeCol,
                                       progressCol);
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        lastvCol.setCellValueFactory(new PropertyValueFactory<>("lastViewed"));
+        ratingCol.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        progressCol.setCellValueFactory(new PropertyValueFactory<>("progress"));
         setupMovieListColumnWidth();
         movieList.setItems(getElements());
 
@@ -127,7 +180,7 @@ public class GUI extends Application {
 
     private void setupMovieListColumns() {
         nameCol = new TableColumn("Name");
-        releaseCol = new TableColumn("Released");
+        lastvCol = new TableColumn("Last Viewed");
         ratingCol = new TableColumn("Rating");
         typeCol = new TableColumn("Type");
         progressCol = new TableColumn("Progress");
@@ -135,7 +188,7 @@ public class GUI extends Application {
 
     private void setupMovieListColumnWidth() {
         nameCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
-        releaseCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
+        lastvCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         ratingCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         typeCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));
         progressCol.prefWidthProperty().bind(movieList.widthProperty().multiply(0.2));

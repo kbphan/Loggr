@@ -2,7 +2,7 @@
 import java.util.*;
 import java.awt.image.BufferedImage;
 public class MediaElement extends Element {
-    private ImdbAPI omdbData;
+    private ImdbAPI_old omdbData;
     MediaElement() {
         super();
         setType("media");
@@ -10,10 +10,10 @@ public class MediaElement extends Element {
     MediaElement(String name, Date lastViewed, Date dateStarted) {
         super(name, lastViewed, dateStarted);
         setType("media");
-        this.omdbData = new ImdbAPI(name);
+        this.omdbData = new ImdbAPI_old(name);
     }
     
-    public ImdbAPI getOmdbData()
+    public ImdbAPI_old getOmdbData()
     {
             return this.omdbData;
     }
