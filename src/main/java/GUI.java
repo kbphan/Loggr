@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.collections.*;
 import javafx.scene.control.cell.*;
 import java.util.*;
+import java.awt.image.BufferedImage;
 
 public class GUI extends Application {
     private static final int APPWIDTH = 1000;
@@ -90,9 +91,8 @@ public class GUI extends Application {
     }
 
     public void addButtonClicked() {
-        if (typeInput.getValue().equals("media")) {
-            MediaElement media = new MediaElement();
-            media.setName(nameInput.getText());
+        if (typeInput.getValue().equals("media") && !nameInput.getText().trim().equals("")) {
+            MediaElement media = new MediaElement(nameInput.getText().trim(), new Date(), new Date());
             movieList.getItems().add(media);
             nameInput.clear();
         }
@@ -136,7 +136,7 @@ public class GUI extends Application {
     private void setupSideBox() {
         sideBox = new HBox();
         description = new Text();
-        description.setWrappingWidth(500);
+        description.setWrappingWidth(250);
         description.setFont(new Font(16));
         sideBox.getChildren().add(description);
     }
@@ -164,9 +164,11 @@ public class GUI extends Application {
                 for (String str : JSON.getData(selectedElement.getName())) {
                     temp += str + "\n";
                 }
-                ImdbAPI_old poster = new ImdbAPI_old(selectedElement.getName());
-                poster.getRawText();
-                poster.getPoster();
+                BufferedImage poster = null;
+                if(MediaElement.class.isInstance(selectedElement))
+                {
+                    poster = ((MediaElement)selectedElement).getPoster();
+                }
                 description.setText(temp);
             }
 

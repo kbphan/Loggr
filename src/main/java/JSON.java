@@ -27,11 +27,8 @@ public class JSON {
 
         // the return statement builds an array of strings from the API
         return new String[]{
-
-                "name: " + omdbAPI.getTitle(),
-                "description: " + omdbAPI.getPlot(),
                 "Name: " + omdbAPI.getTitle(),
-                "Discription: " + omdbAPI.getPlot(),
+                "Description: " + omdbAPI.getPlot(),
                 "Imdb Rating - " + omdbAPI.getImdbRating()
         };
     }

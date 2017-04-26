@@ -7,7 +7,7 @@ public class MoviePoster
     private String filePath;
     public MoviePoster(String title, String url)
     {
-        this.filePath = fetchPosterImage(title, url);
+        fetchPosterImage(title, url);
     }
     
     public String getFilePath()
@@ -28,31 +28,30 @@ public class MoviePoster
         }
     }
     
-    private String fetchPosterImage(String title, String url)
+    private void fetchPosterImage(String title, String url)
     {
         if(url.equalsIgnoreCase("n/a"))
         {
-            return null;
+            this.filePath = null;
+            return;
         }
-        BufferedImage img = null;
         try
         {
-            img = ImageIO.read(new URL(url));
-            File imgFile = new File("posters/" + url.substring(url.lastIndexOf("/") + 1));
+            BufferedImage img = ImageIO.read(new URL(url));
+            this.filePath = "posters/" + titleToFileName(title) + url.substring(url.lastIndexOf("."));
+            File imgFile = new File(this.filePath);
             ImageIO.write(img, url.substring(url.lastIndexOf(".") + 1), imgFile);
         }
         catch(MalformedURLException e)
         {
             System.out.println(e.toString());
-            return null;
+            this.filePath = null;
         }
         catch(IOException e)
         {
             System.out.println(e.toString());
-            return null;
+            this.filePath = null;
         }
-        
-        return "poster/" + titleToFileName(title) + url.substring(url.lastIndexOf("."));
     }
     
     private String titleToFileName(String title)

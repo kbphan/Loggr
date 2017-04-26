@@ -17,4 +17,5 @@ public class MediaElement extends Element {
     {
         return poster.getPoster();
     }
+    
 }
