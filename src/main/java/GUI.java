@@ -160,9 +160,13 @@ public class GUI extends Application {
             {
                 Element selectedElement = movieList.getSelectionModel().getSelectedItem();
                 String temp = "";
+                // JSON.getData() will return an array of Strings that are details about the movie
                 for (String str : JSON.getData(selectedElement.getName())) {
                     temp += str + "\n";
                 }
+                ImdbAPI_old poster = new ImdbAPI_old(selectedElement.getName());
+                poster.getRawText();
+                poster.getPoster();
                 description.setText(temp);
             }
 

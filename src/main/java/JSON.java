@@ -26,6 +26,7 @@ public class JSON {
         Gson gson = new Gson();
         OmdbAPI omdbAPI = gson.fromJson(json, OmdbAPI.class);
 
+        // the return statement builds an array of strings from the API
         return new String[]{
                 "Name: " + omdbAPI.getTitle(),
                 "Discription: " + omdbAPI.getPlot(),
