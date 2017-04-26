@@ -2,7 +2,6 @@ import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import java.io.IOException;
 
 public class JSON {
@@ -20,7 +19,7 @@ public class JSON {
         String json = null;
         try {
             json = getJSON("http://www.omdbapi.com/?t=" + movieName);
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         Gson gson = new Gson();
@@ -28,7 +27,21 @@ public class JSON {
 
         return new String[]{
                 "name: " + imdbapi.getTitle(),
-                "discription: " + imdbapi.getPlot()
+                "description: " + imdbapi.getPlot()
         };
+    }
+    
+    public static String getPoster(String movieName)
+    {
+        String json = null;
+        try {
+            json = getJSON("http://www.omdbapi.com/?t=" + movieName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        OmdbAPI imdbapi = gson.fromJson(json, OmdbAPI.class);
+
+        return imdbapi.getPoster();
     }
 }

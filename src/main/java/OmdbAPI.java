@@ -1,54 +1,9 @@
 
 public class OmdbAPI {
-    private String Released;
-
-    private String Website;
-
-    private String Type;
-
-    private String imdbVotes;
+    private String Released, Website, Type, imdbVotes, Runtime, Response, Poster, imdbID, Country, BoxOffice, Title, DVD, imdbRating, Year, Rated, Actors, Plot,
+                   Metascore, Writer, Production, Genre, Language, Awards, Director;
 
     private Ratings[] Ratings;
-
-    private String Runtime;
-
-    private String Response;
-
-    private String Poster;
-
-    private String imdbID;
-
-    private String Country;
-
-    private String BoxOffice;
-
-    private String Title;
-
-    private String DVD;
-
-    private String imdbRating;
-
-    private String Year;
-
-    private String Rated;
-
-    private String Actors;
-
-    private String Plot;
-
-    private String Metascore;
-
-    private String Writer;
-
-    private String Production;
-
-    private String Genre;
-
-    private String Language;
-
-    private String Awards;
-
-    private String Director;
 
     public String getReleased ()
     {
