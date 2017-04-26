@@ -24,11 +24,12 @@ public class JSON {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        OmdbAPI imdbapi = gson.fromJson(json, OmdbAPI.class);
+        OmdbAPI omdbAPI = gson.fromJson(json, OmdbAPI.class);
 
         return new String[]{
-                "name: " + imdbapi.getTitle(),
-                "discription: " + imdbapi.getPlot()
+                "Name: " + omdbAPI.getTitle(),
+                "Discription: " + omdbAPI.getPlot(),
+                "Imdb Rating - " + omdbAPI.getImdbRating()
         };
     }
 }

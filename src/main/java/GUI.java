@@ -23,7 +23,7 @@ public class GUI extends Application {
     GridPane mainPane;
     Scene mainScene;
     Stage primaryStage;
-    TableView movieList;
+    TableView<Element> movieList;
     TextField nameInput;
     ChoiceBox typeInput;
     Text description;
@@ -31,6 +31,7 @@ public class GUI extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
+        primaryStage.setMinWidth(800);
         setupScenes();
         stage.setTitle("Loggr"); //Title in the title bar
         stage.setScene(mainScene);
@@ -134,10 +135,8 @@ public class GUI extends Application {
 
     private void setupSideBox() {
         sideBox = new HBox();
-        for (String str : JSON.getData("Harry Potter")) {
-            System.out.println(str);
-        }
         description = new Text();
+        description.setWrappingWidth(500);
         description.setFont(new Font(16));
         sideBox.getChildren().add(description);
     }
@@ -159,7 +158,12 @@ public class GUI extends Application {
             @Override
             public void onChanged(Change<? extends Integer> change)
             {
-
+                Element selectedElement = movieList.getSelectionModel().getSelectedItem();
+                String temp = "";
+                for (String str : JSON.getData(selectedElement.getName())) {
+                    temp += str + "\n";
+                }
+                description.setText(temp);
             }
 
         });
