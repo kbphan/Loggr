@@ -1,5 +1,6 @@
 //package loggr;
 import java.util.*;
+import java.awt.image.BufferedImage;
 public class MediaElement extends Element {
     private ImdbAPI omdbData;
     MediaElement() {
@@ -35,5 +36,10 @@ public class MediaElement extends Element {
     public String getGenres()
     {
         return this.omdbData.getGenres();
+    }
+    
+    public BufferedImage getPoster()
+    {
+        return this.omdbData.getPoster();
     }
 }

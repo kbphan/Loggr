@@ -1,15 +1,18 @@
 import java.io.*;
 import java.net.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 
 public class ImdbAPI {
     
-    private String rawText, filmRating, releaseYear, genres;
+    private String rawText, filmRating, releaseYear, genres, posterFilePath;
     public ImdbAPI(String title)
     {
         this.rawText = omdbGet(title);
         this.filmRating = this.parseFilmRating();
         this.releaseYear = this.parseReleaseYear();
         this.genres = this.parseGenres();
+        this.posterFilePath = this.fetchPosterImage();
     }
     
     public String getRawText()
@@ -30,6 +33,59 @@ public class ImdbAPI {
     public String getGenres()
     {
         return this.genres;
+    }
+    
+    public String getPosterFilePath()
+    {
+        return this.posterFilePath;
+    }
+    
+    public BufferedImage getPoster()
+    {
+        try
+        {
+        return ImageIO.read(new File(this.posterFilePath));
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+    
+    private String fetchPosterImage()
+    {
+        if(!this.rawText.contains("\"Poster\":\""))
+        {
+            return null;
+        }
+        int a = this.rawText.indexOf("\"Poster\":\"") + 10;
+        int b = this.rawText.indexOf("\",\"Ratings\":[");
+        String url = this.rawText.substring(a,b);
+        if(a == -1 || b == -1 || url.equalsIgnoreCase("n/a"))
+        {
+            return null;
+        }
+        BufferedImage img = null;
+        try
+        {
+            img = ImageIO.read(new URL(url));
+            File imgFile = new File("posters/" + url.substring(url.lastIndexOf("/") + 1));
+            ImageIO.write(img, url.substring(url.lastIndexOf(".") + 1), imgFile);
+            
+        }
+        catch(MalformedURLException e)
+        {
+            System.out.println(e.toString());
+            return null;
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.toString());
+            return null;
+        }
+        
+        return "poster/" + url;
     }
     
     private String parseGenres()
