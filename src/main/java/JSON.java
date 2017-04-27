@@ -29,7 +29,9 @@ public class JSON {
         return new String[]{
                 "Name: " + omdbAPI.getTitle(),
                 "Description: " + omdbAPI.getPlot(),
-                "Imdb Rating - " + omdbAPI.getImdbRating()
+                "Imdb Rating - " + omdbAPI.getImdbRating(),
+                "Imdb Release Date: " + omdbAPI.getReleased(),
+                
         };
     }
     

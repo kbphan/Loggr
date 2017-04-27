@@ -1,12 +1,18 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.collections.*;
 import javafx.scene.control.cell.*;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.*;
 import java.awt.image.BufferedImage;
 
@@ -28,6 +34,7 @@ public class GUI extends Application {
     TextField nameInput;
     ChoiceBox typeInput;
     Text description;
+    ImageView poster;
 
     @Override
     public void start(Stage stage) {
@@ -138,7 +145,7 @@ public class GUI extends Application {
         description = new Text();
         description.setWrappingWidth(250);
         description.setFont(new Font(16));
-        sideBox.getChildren().add(description);
+        sideBox.getChildren().addAll(description);
     }
 
     private void setupButtonGrow() {
@@ -164,10 +171,9 @@ public class GUI extends Application {
                 for (String str : JSON.getData(selectedElement.getName())) {
                     temp += str + "\n";
                 }
-                BufferedImage poster = null;
                 if(MediaElement.class.isInstance(selectedElement))
                 {
-                    poster = ((MediaElement)selectedElement).getPoster();
+
                 }
                 description.setText(temp);
             }
