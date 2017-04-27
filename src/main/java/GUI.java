@@ -28,6 +28,7 @@ public class GUI extends Application {
     ColumnConstraints col1, col2;
     HBox buttonBox;
     VBox sideBox;
+    ScrollPane sideBoxScrl;
     GridPane mainPane;
     Scene mainScene;
     Stage primaryStage;
@@ -41,6 +42,7 @@ public class GUI extends Application {
     public void start(Stage stage) {
         primaryStage = stage;
         primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(500);
         setupScenes();
         stage.setTitle("Loggr"); //Title in the title bar
         stage.setScene(mainScene);
@@ -66,7 +68,7 @@ public class GUI extends Application {
         setupMovieList();
         mainPane.add(buttonBox, 0, 1);
         mainPane.add(movieList, 0, 0);
-        mainPane.add(sideBox, 1, 0);
+        mainPane.add(sideBoxScrl, 1, 0);
         mainPane.setVgrow(movieList, Priority.ALWAYS);
         mainPane.setHgrow(buttonBox, Priority.ALWAYS);
     }
@@ -154,6 +156,7 @@ public class GUI extends Application {
         description.setFont(new Font(16));
         poster = new ImageView();
         sideBox.getChildren().addAll(poster, description);
+        sideBoxScrl = new ScrollPane(sideBox);
     }
 
     private void setupButtonGrow() {
