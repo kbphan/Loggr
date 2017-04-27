@@ -20,4 +20,4 @@ alternatively, this program can be compiled and launched through netbeans by clo
 Features
 ------
 Fetching movie data dynamically to display on the sidebar
-![](https://gfycat.com/CoordinatedSpicyAllensbigearedbat)
+![](https://gfycat.com/CoordinatedSpicyAllensbigearedbat.gif)
