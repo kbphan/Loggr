@@ -21,3 +21,4 @@ Features
 ------
 Fetching movie data dynamically to display on the sidebar
 ![](https://zippy.gfycat.com/ImpureGrotesqueCygnet.gif)
+![](https://zippy.gfycat.com/EmotionalAlarmedBluebottle.gif)
