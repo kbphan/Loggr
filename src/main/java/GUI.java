@@ -84,9 +84,9 @@ public class GUI extends Application {
         nameInput.setPromptText("name");
         nameInput.setMinWidth(100);
         typeInput = new ChoiceBox<String>();
-        typeInput.getItems().addAll("media",
-                                    "text");
-        typeInput.setValue("media");
+        typeInput.getItems().addAll("Movie",
+                                    "Book");
+        typeInput.setValue("Movie");
         addButton = new Button("Add");
         addButton.setOnAction(e -> addButtonClicked());
         removeButton = new Button("Remove");
@@ -99,12 +99,12 @@ public class GUI extends Application {
     }
 
     public void addButtonClicked() {
-        if (typeInput.getValue().equals("media") && !nameInput.getText().trim().equals("")) {
+        if (typeInput.getValue().equals("Movie") && !nameInput.getText().trim().equals("")) {
             MediaElement media = new MediaElement(nameInput.getText().trim(), new Date(), new Date());
             movieList.getItems().add(media);
             nameInput.clear();
         }
-        if (typeInput.getValue().equals("text") && !nameInput.getText().trim().equals("")) {
+        if (typeInput.getValue().equals("Book") && !nameInput.getText().trim().equals("")) {
             TextElement text = new TextElement(nameInput.getText().trim(), new Date(), new Date());
             movieList.getItems().add(text);
             nameInput.clear();
@@ -191,6 +191,7 @@ public class GUI extends Application {
                     for (String str : JSON.getBook(selectedElement.getName())) {
                         temp += str + "\n\n";
                     }
+                    poster.setImage(null);
                 }
                 description.setText(temp);
             }

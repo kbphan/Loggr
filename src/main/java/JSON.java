@@ -45,7 +45,7 @@ public class JSON {
                 "Summery: " + book.getSummary(),
                 "Language: " + book.getLanguage(),
                 "Publisher: " + book.getPublisherName(),
-                "Author(s) : " + author
+                "Author(s): " + author
         };
     }
 
@@ -65,6 +65,8 @@ public class JSON {
                 "Plot: " + omdbAPI.getPlot(),
                 "Imdb Rating - " + omdbAPI.getImdbRating(),
                 "Release Date: " + omdbAPI.getReleased(),
+                "Director: " + omdbAPI.getDirector(),
+                "Actors: " + omdbAPI.getActors(),
         };
     }
     
