@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -142,6 +143,7 @@ public class GUI extends Application {
 
     private void setupSideBox() {
         sideBox = new HBox();
+        sideBox.setPadding(new Insets(10, 10, 10, 10));
         description = new Text();
         description.setWrappingWidth(250);
         description.setFont(new Font(16));
@@ -169,7 +171,7 @@ public class GUI extends Application {
                 String temp = "";
                 // JSON.getData() will return an array of Strings that are details about the movie
                 for (String str : JSON.getData(selectedElement.getName())) {
-                    temp += str + "\n";
+                    temp += str + "\n\n";
                 }
                 if(MediaElement.class.isInstance(selectedElement))
                 {

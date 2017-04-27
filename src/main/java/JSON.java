@@ -18,7 +18,7 @@ public class JSON {
     public static String[] getData(String movieName) {
         String json = null;
         try {
-            json = getJSON("http://www.omdbapi.com/?t=" + movieName);
+            json = getJSON("http://www.omdbapi.com/?t=" + movieName + "&plot=full");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,10 +28,10 @@ public class JSON {
         // the return statement builds an array of strings from the API
         return new String[]{
                 "Name: " + omdbAPI.getTitle(),
-                "Description: " + omdbAPI.getPlot(),
+                "Plot: " + omdbAPI.getPlot(),
                 "Imdb Rating - " + omdbAPI.getImdbRating(),
-                "Imdb Release Date: " + omdbAPI.getReleased(),
-                
+                "Release Date: " + omdbAPI.getReleased(),
+
         };
     }
     
