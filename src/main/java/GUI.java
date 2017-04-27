@@ -191,7 +191,8 @@ public class GUI extends Application {
                     for (String str : JSON.getBook(selectedElement.getName())) {
                         temp += str + "\n\n";
                     }
-                    poster.setImage(null);
+                    Image img = new Image(JSON.getCover(selectedElement.getName()));
+                    poster.setImage(img);
                 }
                 description.setText(temp);
             }

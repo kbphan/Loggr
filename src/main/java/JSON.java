@@ -83,4 +83,21 @@ public class JSON {
 
         return imdbapi.getPoster();
     }
+
+    public static String getCover(String bookName) {
+        String json = null;
+        bookName = bookName.replaceAll(" ", "_");
+        try {
+            json = getJSON("http://isbndb.com/api/v2/json/GSZ82QQ6/book/" + bookName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        Isbndb isbndb = gson.fromJson(json, Isbndb.class);
+        List<Datum> dt = isbndb.getData();
+        Datum book = dt.get(0);
+        String isbn = book.getIsbn13();
+        return "http://covers.openlibrary.org/b/isbn/" + isbn + "-L.jpg";
+    }
+
 }
