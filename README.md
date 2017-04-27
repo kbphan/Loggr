@@ -16,3 +16,8 @@ java -cp target/Loggr-1.0.jar GUI
 ```
 
 alternatively, this program can be compiled and launched through netbeans by cloning the repository
+
+Features
+------
+Fetching movie data dynamically to display on the sidebar
+![](https://gfycat.com/CoordinatedSpicyAllensbigearedbat)
