@@ -104,6 +104,11 @@ public class GUI extends Application {
             movieList.getItems().add(media);
             nameInput.clear();
         }
+        if (typeInput.getValue().equals("text") && !nameInput.getText().trim().equals("")) {
+            TextElement text = new TextElement(nameInput.getText().trim(), new Date(), new Date());
+            movieList.getItems().add(text);
+            nameInput.clear();
+        }
     }
 
     public void removeButtonClicked() {
@@ -171,14 +176,21 @@ public class GUI extends Application {
             {
                 Element selectedElement = movieList.getSelectionModel().getSelectedItem();
                 String temp = "";
-                // JSON.getData() will return an array of Strings that are details about the movie
-                for (String str : JSON.getData(selectedElement.getName())) {
-                    temp += str + "\n\n";
-                }
+
                 if(MediaElement.class.isInstance(selectedElement))
                 {
+                    // JSON.getData() will return an array of Strings that are details about the movie
+                    for (String str : JSON.getData(selectedElement.getName())) {
+                        temp += str + "\n\n";
+                    }
                     Image img = new Image(JSON.getPoster(selectedElement.getName()));
                     poster.setImage(img);
+                }
+                else {
+                    // JSON.getData() will return an array of Strings that are details about the movie
+                    for (String str : JSON.getBook(selectedElement.getName())) {
+                        temp += str + "\n\n";
+                    }
                 }
                 description.setText(temp);
             }
