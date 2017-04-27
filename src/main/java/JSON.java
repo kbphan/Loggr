@@ -42,7 +42,7 @@ public class JSON {
         }
         return new String[]{
                 "Title: " + title,
-                "Summery: " + book.getSummary(),
+                "Summary: " + book.getSummary(),
                 "Language: " + book.getLanguage(),
                 "Publisher: " + book.getPublisherName(),
                 "Author(s): " + author
