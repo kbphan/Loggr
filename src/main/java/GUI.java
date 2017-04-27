@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.collections.*;
 import javafx.scene.control.cell.*;
-
+import javafx.scene.control.TableColumn.CellEditEvent;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -162,6 +162,7 @@ public class GUI extends Application {
     private void setupMovieList() {
         setupMovieListColumns();
         movieList = new TableView<Element>();
+        movieList.setEditable(true);
         movieList.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>()
         {
             @Override
@@ -191,6 +192,8 @@ public class GUI extends Application {
         ratingCol.setCellValueFactory(new PropertyValueFactory<>("rating"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         progressCol.setCellValueFactory(new PropertyValueFactory<>("progress"));
+        ratingCol.setCellFactory(TextFieldTableCell.<Element>forTableColumn());
+        progressCol.setCellFactory(TextFieldTableCell.<Element>forTableColumn());
         setupMovieListColumnWidth();
         movieList.setItems(getElements());
 
