@@ -27,7 +27,7 @@ public class GUI extends Application {
     TableColumn nameCol, lastvCol, ratingCol, typeCol, progressCol;
     ColumnConstraints col1, col2;
     HBox buttonBox;
-    HBox sideBox;
+    VBox sideBox;
     GridPane mainPane;
     Scene mainScene;
     Stage primaryStage;
@@ -142,12 +142,13 @@ public class GUI extends Application {
     }
 
     private void setupSideBox() {
-        sideBox = new HBox();
-        sideBox.setPadding(new Insets(10, 10, 10, 10));
+        sideBox = new VBox();
+        sideBox.setPadding(new Insets(15, 15, 15, 15));
         description = new Text();
         description.setWrappingWidth(250);
         description.setFont(new Font(16));
-        sideBox.getChildren().addAll(description);
+        poster = new ImageView();
+        sideBox.getChildren().addAll(poster, description);
     }
 
     private void setupButtonGrow() {
@@ -176,7 +177,8 @@ public class GUI extends Application {
                 }
                 if(MediaElement.class.isInstance(selectedElement))
                 {
-
+                    Image img = new Image(JSON.getPoster(selectedElement.getName()));
+                    poster.setImage(img);
                 }
                 description.setText(temp);
             }
@@ -217,7 +219,6 @@ public class GUI extends Application {
 
     public ObservableList<Element> getElements() {
         ObservableList<Element> listOfElements = FXCollections.observableArrayList();
-        listOfElements.add(new MediaElement("Harry Potter", new Date(), new Date()));
         return listOfElements;
     }
 
