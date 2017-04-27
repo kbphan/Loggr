@@ -4,6 +4,7 @@ public class Element implements Comparable<Element> {
     private String type, name;
     private Date dateStarted, dateAdded, lastViewed;
     private boolean finished, dropped;
+    private int rating, progress;
 
     public Element() {
         name = null;
@@ -161,4 +162,20 @@ public class Element implements Comparable<Element> {
 	public void setDropped(boolean dropped) {
 		this.dropped = dropped;
 	}
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
 }

@@ -5,6 +5,11 @@ public class Database {
     Database() {
         db = new ArrayList<>();
     }
+    
+    public ArrayList<Element> getDb()
+    {
+        return this.db;
+    }
 
     public void add(Element elm) {
         db.add(elm);

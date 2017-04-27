@@ -1,5 +1,13 @@
+import com.google.gson.Gson;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
+import java.io.IOException;
 import java.util.*;
 public class CLI {
+
     public static void main(String[] args) {
         CLI cli = new CLI();
         cli.run();
@@ -7,6 +15,7 @@ public class CLI {
 
     public void run() {
         Database db = new Database();
+        MediaElement test1 = new MediaElement("Harry Potter and the Sorcerer's Stone", new Date(), new Date());
         boolean running = true;
         try(Scanner in = new Scanner(System.in)) {
             while (running) {
