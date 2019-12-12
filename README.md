@@ -3,10 +3,6 @@ What is Loggr?
 ------
 Loggr is a program that helps users keep track of the media that they have read or watched
 
-How to launch
-------
-Clone the project in Netbeans or Intellij and then run the GUI
-
 Features
 ------
 Fetches movie data dynamically to display on the sidebar
